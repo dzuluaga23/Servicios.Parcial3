@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Servicios.Parcial3.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -9,16 +10,16 @@ namespace Servicios.Parcial3
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
+            // VALIDACIÓN JWT
+            config.MessageHandlers.Add(new JwtValidationHandler());
 
-            // Web API routes
+            // Rutas por defecto
             config.MapHttpAttributeRoutes();
-
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
-            );
+            );    
         }
     }
 }
