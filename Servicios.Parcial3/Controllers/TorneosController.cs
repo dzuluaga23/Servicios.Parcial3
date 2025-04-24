@@ -10,6 +10,7 @@ using System.Web.Http;
 namespace Servicios.Parcial3.Controllers
 {
     [RoutePrefix("api/Torneos")]
+    [Authorize]
     public class TorneosController : ApiController
     {
         private DBExamenEntities1 db = new DBExamenEntities1();
